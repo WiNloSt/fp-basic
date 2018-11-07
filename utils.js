@@ -7,6 +7,8 @@ function log(...args) {
   console.log(...args)
 }
 
+const unary = fn => arg => fn(arg)
+
 const curry = (fn, arity = fn.length) => (...args) =>
   args.length >= arity
     ? fn(...args)
@@ -35,6 +37,8 @@ const partialRight = (fn, ...args) => (...newArgs) => fn(...newArgs, ...args)
 
 const reverseArgs = fn => (...args) => fn(...args.reverse())
 
+const map = (fn, array) => array.map(fn)
+
 module.exports = {
   curry,
   // looseCurry,
@@ -47,5 +51,7 @@ module.exports = {
   when,
   reverseArgs,
   partial,
-  partialRight
+  partialRight,
+  map,
+  unary
 }
