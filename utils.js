@@ -39,6 +39,12 @@ const reverseArgs = fn => (...args) => fn(...args.reverse())
 
 const map = (fn, array) => array.map(fn)
 
+const filter = (fn, array) => array.filter(fn)
+
+// const exclude = (fn, array) => array.filter(fn)
+
+const propEq = (key, value) => obj => obj[key] === value
+
 module.exports = {
   curry,
   // looseCurry,
@@ -53,5 +59,7 @@ module.exports = {
   partial,
   partialRight,
   map,
-  unary
+  unary,
+  filter,
+  propEq
 }
